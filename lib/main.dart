@@ -9,12 +9,20 @@ void main() {
       ),
       body: getListView(),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          debugPrint("Working");
+        },
         child: Icon(Icons.add),
         tooltip: "Tambahkan Satu Barang",
       ),
     ),
   ));
+}
+
+void showSnackBar(BuildContext context, String item) {
+  var snackBar = SnackBar(content: Text("Kau Baru Saja Menekan $item"));
+
+  Scaffold.of(context).showSnackBar(snackBar);
 }
 
 List <String> getListElements(){
@@ -30,7 +38,7 @@ Widget getListView() {
       leading: Icon(Icons.arrow_right),
       title: Text(listItems[index]),
       onTap: () {
-        debugPrint('${listItems[index]} Ditekan');
+        showSnackBar(context, listItems[index]);
       },
     );
   });
