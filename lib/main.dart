@@ -8,12 +8,17 @@ void main() {
         title: Text("Long List"),
       ),
       body: getListView(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.add),
+        tooltip: "Tambahkan Satu Barang",
+      ),
     ),
   ));
 }
 
 List <String> getListElements(){
-  var items = List<String>.generate(100, (Counter) => "Item $Counter");
+  var items = List<String>.generate(100, (Counter) => "Barang $Counter");
   return items;
 }
 
@@ -25,7 +30,7 @@ Widget getListView() {
       leading: Icon(Icons.arrow_right),
       title: Text(listItems[index]),
       onTap: () {
-        debugPrint('${listItems[index]} Was Tapped');
+        debugPrint('${listItems[index]} Ditekan');
       },
     );
   });
